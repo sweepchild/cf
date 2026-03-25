@@ -98,8 +98,8 @@ h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacin
 table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 1.6rem; }
 th { background: var(--bg3); color: var(--text2); font-size: 10px; font-weight: 700;
      text-transform: uppercase; letter-spacing: .06em;
-     padding: 6px 7px; border: 1px solid var(--border); white-space: nowrap; }
-td { padding: 6px 7px; border: 1px solid var(--border2); vertical-align: middle; }
+     padding: 7px 10px; border: 1px solid var(--border); white-space: nowrap; }
+td { padding: 7px 10px; border: 1px solid var(--border2); vertical-align: middle; }
 tr:nth-child(even) td { background: var(--bg2); }
 .num { text-align: right; font-family: var(--mono); }
 .section-sep td { background: var(--bg3); font-size: 10px; font-weight: 800;
@@ -107,7 +107,7 @@ tr:nth-child(even) td { background: var(--bg2); }
                   padding: 5px 10px; border-color: var(--border); }
 
 /* ── MTR hop tables ── */
-.mtr-block { margin-bottom: 2.4rem; border: 1px solid var(--border); border-radius: 6px; overflow-x: auto; }
+.mtr-block { margin-bottom: 2.4rem; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
 .mtr-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
               gap: .5rem; padding: .7rem 1rem; background: var(--bg3);
               border-bottom: 1px solid var(--border); }
@@ -130,7 +130,7 @@ tr:nth-child(even) td { background: var(--bg2); }
 .loss-ok   { color: var(--good); }
 
 /* ── Grid for paired tests ── */
-.pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 2rem; }
 @media (max-width: 900px) { .pair { grid-template-columns: 1fr; } }
 
 /* ── Verdict boxes ── */
@@ -155,6 +155,7 @@ tr:nth-child(even) td { background: var(--bg2); }
 </head>
 <body>
 
+<!-- ═══════════ COVER ═══════════ -->
 <div class="cover">
   <h1>Cloudflare Routing Analizi — TTNet vs TurkNet</h1>
   <p style="color:var(--text2);margin-top:.4rem">MTR tabanlı ağ yolu ve paket kaybı incelemesi · Site adları maskeli</p>
@@ -168,6 +169,7 @@ tr:nth-child(even) td { background: var(--bg2); }
   </div>
 </div>
 
+<!-- ═══════════ LEGEND ═══════════ -->
 <div class="legend">
   <span><span class="tag tag-g">IST</span> CF İstanbul PoP — lokal</span>
   <span><span class="tag tag-r">AMS/DUS</span> CF Avrupa PoP — yurt dışı</span>
@@ -178,10 +180,14 @@ tr:nth-child(even) td { background: var(--bg2); }
   <span style="display:flex;align-items:center;gap:.3rem"><span style="width:12px;height:12px;background:#fef9c3;border:1px solid #fde68a;display:inline-block;border-radius:2px"></span> Uyarı hop satırı</span>
 </div>
 
+<!-- ═══════════════════════════════════════════════════════
+     SITE A
+════════════════════════════════════════════════════════ -->
 <h2>Site A</h2>
 
 <div class="pair">
 
+  <!-- A / TurkNet / Test 1 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site A &nbsp;·&nbsp; <span class="tn">TurkNet</span> &nbsp;·&nbsp; Test 1</span>
@@ -203,6 +209,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- A / TurkNet / Test 2 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site A &nbsp;·&nbsp; <span class="tn">TurkNet</span> &nbsp;·&nbsp; Test 2</span>
@@ -224,6 +231,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- A / TTNet / Test 1 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site A &nbsp;·&nbsp; <span class="tt">TTNet</span> &nbsp;·&nbsp; Test 1</span>
@@ -248,6 +256,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- A / TTNet / Test 2 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site A &nbsp;·&nbsp; <span class="tt">TTNet</span> &nbsp;·&nbsp; Test 2</span>
@@ -274,10 +283,16 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
-</div><h2>Site B</h2>
+</div><!-- /pair Site A -->
+
+<!-- ═══════════════════════════════════════════════════════
+     SITE B
+════════════════════════════════════════════════════════ -->
+<h2>Site B</h2>
 
 <div class="pair">
 
+  <!-- B / TurkNet / Test 1 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site B &nbsp;·&nbsp; <span class="tn">TurkNet</span> &nbsp;·&nbsp; Test 1</span>
@@ -299,6 +314,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- B / TurkNet / Test 2 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site B &nbsp;·&nbsp; <span class="tn">TurkNet</span> &nbsp;·&nbsp; Test 2</span>
@@ -320,6 +336,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- B / TTNet / Test 1 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site B &nbsp;·&nbsp; <span class="tt">TTNet</span> &nbsp;·&nbsp; Test 1</span>
@@ -344,6 +361,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- B / TTNet / Test 2 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site B &nbsp;·&nbsp; <span class="tt">TTNet</span> &nbsp;·&nbsp; Test 2</span>
@@ -369,10 +387,16 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
-</div><h2>Site C</h2>
+</div><!-- /pair Site B -->
+
+<!-- ═══════════════════════════════════════════════════════
+     SITE C
+════════════════════════════════════════════════════════ -->
+<h2>Site C</h2>
 
 <div class="pair">
 
+  <!-- C / TurkNet / Test 1 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site C &nbsp;·&nbsp; <span class="tn">TurkNet</span> &nbsp;·&nbsp; Test 1</span>
@@ -394,6 +418,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- C / TurkNet / Test 2 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site C &nbsp;·&nbsp; <span class="tn">TurkNet</span> &nbsp;·&nbsp; Test 2</span>
@@ -415,6 +440,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- C / TTNet / Test 1 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site C &nbsp;·&nbsp; <span class="tt">TTNet</span> &nbsp;·&nbsp; Test 1</span>
@@ -439,6 +465,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- C / TTNet / Test 2 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site C &nbsp;·&nbsp; <span class="tt">TTNet</span> &nbsp;·&nbsp; Test 2</span>
@@ -463,10 +490,16 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
-</div><h2>Site D</h2>
+</div><!-- /pair Site C -->
+
+<!-- ═══════════════════════════════════════════════════════
+     SITE D
+════════════════════════════════════════════════════════ -->
+<h2>Site D</h2>
 
 <div class="pair">
 
+  <!-- D / TurkNet / Test 1 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site D &nbsp;·&nbsp; <span class="tn">TurkNet</span> &nbsp;·&nbsp; Test 1</span>
@@ -488,6 +521,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- D / TurkNet / Test 2 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site D &nbsp;·&nbsp; <span class="tn">TurkNet</span> &nbsp;·&nbsp; Test 2</span>
@@ -509,6 +543,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- D / TTNet / Test 1 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site D &nbsp;·&nbsp; <span class="tt">TTNet</span> &nbsp;·&nbsp; Test 1</span>
@@ -534,6 +569,7 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
+  <!-- D / TTNet / Test 2 -->
   <div class="mtr-block">
     <div class="mtr-header">
       <span class="title">Site D &nbsp;·&nbsp; <span class="tt">TTNet</span> &nbsp;·&nbsp; Test 2</span>
@@ -560,7 +596,10 @@ tr:nth-child(even) td { background: var(--bg2); }
     </table>
   </div>
 
-</div><h2>Genel Değerlendirme</h2>
+</div><!-- /pair Site D -->
+
+<!-- ═══════════ VERDICT ═══════════ -->
+<h2>Genel Değerlendirme</h2>
 
 <div class="verdict verdict-r">
   <strong>TTNet (AS9121) — Sonuç</strong><br>
